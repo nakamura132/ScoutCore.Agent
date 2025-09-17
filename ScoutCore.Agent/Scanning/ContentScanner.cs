@@ -8,9 +8,17 @@ namespace ScoutCore.Agent.Scanning;
 public sealed class ContentScanner : IScanner
 {
     private readonly RuleSet _rules;
+    private readonly IEvaluator _evaluator;
     private const int SampleBytes = 512; // 頭/尾のサンプル長
 
-    public ContentScanner(RuleSet rules) => _rules = rules;
+    // 互換コンストラクタ（従来どおり rules だけでも動く）
+    public ContentScanner(RuleSet rules) : this(rules, new RuleEvaluator()) { }
+
+    public ContentScanner(RuleSet rules, IEvaluator evaluator)
+    {
+        _rules = rules ?? throw new ArgumentNullException(nameof(rules));
+        _evaluator = evaluator ?? throw new ArgumentNullException(nameof(evaluator));
+    }
 
     public void Scan(ScanContext ctx)
     {
@@ -33,7 +41,7 @@ public sealed class ContentScanner : IScanner
 
         if (!isTextLike || fi.Length == 0)
         {
-            ApplyScore(ctx); // 本文未取得でもスコアは 0 → Level none
+            SetDefaultEvaluation(ctx); // 本文未取得でもスコアは 0 → Level none
             return;
         }
 
@@ -44,7 +52,7 @@ public sealed class ContentScanner : IScanner
         }
         catch
         {
-            ApplyScore(ctx);
+            SetDefaultEvaluation(ctx);
             return;
         }
 
@@ -54,62 +62,16 @@ public sealed class ContentScanner : IScanner
         var tail = Encoding.UTF8.GetString(bytes.Skip(Math.Max(0, bytes.Length - SampleBytes)).ToArray());
         ctx.Content.Sample = new Sample { Head = head, Tail = tail };
 
-        // ルール適用
-        var hits = new List<Hit>();
-        int score = 0;
-
-        foreach (var rule in _rules.Rules)
-        {
-            int count = 0;
-            switch (rule.Type.ToLowerInvariant())
-            {
-                case "keyword":
-                    if (rule.Patterns is { Count: > 0 })
-                    {
-                        foreach (var kw in rule.Patterns)
-                        {
-                            if (string.IsNullOrEmpty(kw)) continue;
-                            count += CountOccurrences(text, kw);
-                        }
-                    }
-                    break;
-
-                case "regex":
-                    if (!string.IsNullOrEmpty(rule.Pattern))
-                    {
-                        try
-                        {
-                            var m = Regex.Matches(text, rule.Pattern, RegexOptions.Compiled | RegexOptions.Multiline);
-                            count += m.Count;
-                        }
-                        catch { /* 無効な正規表現はスキップ */ }
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-
-            if (count > 0)
-            {
-                hits.Add(new Hit { RuleId = rule.Id, Count = count });
-                score += rule.Weight * count;
-            }
-        }
-
-        ctx.Content.Hits = hits;
-        ctx.Content.Score = ScoreFromValue(score, _rules.Scoring);
+        // 評価は外部コンポーネントに委譲
+        var eval = _evaluator.Evaluate(text, _rules);
+        ctx.Content.Hits = eval.Hits;
+        ctx.Content.Score = eval.Score;
     }
-    /// <summary>
-    /// 本文未取得・例外時など、ヒット無しとしてスコア計算だけ行うヘルパー。
-    /// ヒット 0、スコア 0（Level "none"）をセットします。
-    /// </summary>
-    /// <param name="ctx">スキャンコンテキスト</param>
-    private void ApplyScore(ScanContext ctx)
+    // 本文未取得・例外時など、ヒット無し/none に初期化
+    private static void SetDefaultEvaluation(ScanContext ctx)
     {
-        // 念のため既存のヒットをクリア
         ctx.Content.Hits = new List<Hit>();
-        ctx.Content.Score = ScoreFromValue(0, _rules.Scoring);
+        ctx.Content.Score = new Score { Value = 0, Level = "none" };
     }
     private static string ComputeSha256(Stream s)
     {
