@@ -1,0 +1,14 @@
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\bin\Debug\net10.0\ScoutCore.Reporter.exe
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\bin\Debug\net10.0\ScoutCore.Reporter.deps.json
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\bin\Debug\net10.0\ScoutCore.Reporter.runtimeconfig.json
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\bin\Debug\net10.0\ScoutCore.Reporter.dll
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\bin\Debug\net10.0\ScoutCore.Reporter.pdb
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.GeneratedMSBuildEditorConfig.editorconfig
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.AssemblyInfoInputs.cache
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.AssemblyInfo.cs
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.csproj.CoreCompileInputs.cache
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.dll
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\refint\ScoutCore.Reporter.dll
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.pdb
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ScoutCore.Reporter.genruntimeconfig.cache
+J:\Work\vs\01\ScoutCore.Agent\ScoutCore.Reporter\obj\Debug\net10.0\ref\ScoutCore.Reporter.dll

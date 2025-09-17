@@ -1,0 +1,22 @@
+version: 1
+rules:
+  - id: CONFIDENTIAL_STAMP
+    type: keyword
+    patterns: ["極秘", "社外秘", "confidential", "internal use only"]
+    weight: 5
+
+  - id: CREDIT_CARD
+    type: regex
+    pattern: '\b(?:4[0-9]{12}(?:[0-9]{3})?)\b'  # Visa 簡易
+    weight: 8
+
+  - id: MY_SECRET_CODE
+    type: keyword
+    patterns: ["MyTopSecretCode123"]
+    weight: 10
+
+scoring:
+  thresholds:
+    low: 3
+    medium: 7
+    high: 12

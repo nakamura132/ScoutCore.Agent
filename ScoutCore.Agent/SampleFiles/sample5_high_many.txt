@@ -1,0 +1,5 @@
+最終レビュー版（社外秘）
+
+Release gate password: MyTopSecretCode123
+Test PANs: 4111111111111111
+Note: confidential discussion points are in appendix.

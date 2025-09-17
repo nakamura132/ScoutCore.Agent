@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "NptaER8ezUA=",
+  "success": true,
+  "projectFilePath": "J:\\Work\\vs\\01\\ScoutCore.Agent\\ScoutCore.Agent\\ScoutCore.Agent.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ICHIRO\\.nuget\\packages\\system.text.json\\8.0.6\\system.text.json.8.0.6.nupkg.sha512",
+    "C:\\Users\\ICHIRO\\.nuget\\packages\\yamldotnet\\15.3.0\\yamldotnet.15.3.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference System.Text.Json は排除されません。このパッケージは不要である可能性があるため、依存関係から削除することを検討してください。",
+      "projectPath": "J:\\Work\\vs\\01\\ScoutCore.Agent\\ScoutCore.Agent\\ScoutCore.Agent.csproj",
+      "warningLevel": 1,
+      "filePath": "J:\\Work\\vs\\01\\ScoutCore.Agent\\ScoutCore.Agent\\ScoutCore.Agent.csproj",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

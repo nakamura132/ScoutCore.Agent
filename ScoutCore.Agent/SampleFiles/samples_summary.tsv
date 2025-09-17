@@ -1,0 +1,6 @@
+file	hits	total_score	level
+sample1_low.txt	CONFIDENTIAL_STAMP=1	5	low
+sample2_medium.txt	CONFIDENTIAL_STAMP=2	10	medium
+sample3_high.txt	CONFIDENTIAL_STAMP=1, CREDIT_CARD=1	13	high
+sample4_medium_secret.txt	MY_SECRET_CODE=1	10	medium
+sample5_high_many.txt	CONFIDENTIAL_STAMP=2, CREDIT_CARD=1, MY_SECRET_CODE=1	28	high
