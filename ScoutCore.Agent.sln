@@ -4,6 +4,8 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoutCore.Agent", "ScoutCore.Agent\ScoutCore.Agent.csproj", "{BD923672-AE85-5F7F-5A18-30EC4DAEDDFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoutCore.Reporter", "ScoutCore.Reporter\ScoutCore.Reporter.csproj", "{5698D949-00A2-99B2-99F3-394DB988782D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,10 @@ Global
 		{BD923672-AE85-5F7F-5A18-30EC4DAEDDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD923672-AE85-5F7F-5A18-30EC4DAEDDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD923672-AE85-5F7F-5A18-30EC4DAEDDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5698D949-00A2-99B2-99F3-394DB988782D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5698D949-00A2-99B2-99F3-394DB988782D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5698D949-00A2-99B2-99F3-394DB988782D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5698D949-00A2-99B2-99F3-394DB988782D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
